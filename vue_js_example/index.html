@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VueJs example</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="menu">
+        <div class="header item">Tutorial</div>
+    </div>
+
+    <div class="main container" id="app" style="padding-top: 50px;">
+
+       <!-- <a v-bind:href="link + '/tutoriels'">{{message}}</a>  -->
+       <a :href="link">{{message}}</a> 
+       <div class="success" v-if="success">
+           <p>Bravo, votre enregistrement a marché</p>
+       </div>
+       <div class="error" v-else>
+        <p>Echec, ça n'a pas marché</p>
+        <!-- si je passe success en false -->
+    </div>
+       <div class="show" v-show="seen">
+        <p>Show or not shown</p>
+    </div>
+    <!-- différence v-show v-if avec le v-show l'élément est masqué avec un display:none avec le v-if l'élément est supprimé du code html -->
+    <ul class="persons">
+        <li v-for="person in persons">{{ person }}</li>
+    </ul>
+
+    </div>
+
+
+    <div id="interactive">
+
+        <!-- <input type="text" v-model="message"> -->
+        <input type="checkbox" v-model="success">  <!--on peut faire avec tt type d'input pour formulaire text, radio checkbox... -->
+        <!-- <div class="interactive-item" v-if='active'>ca marche <span><button class="closeIcon" v-on:click="close">x</button></span></div>  -->
+        <div id="interactive-item" :class="{success:success, error:!success}"> 
+            <button class="closeIcon" @click="close" :style="style()">x</button>
+            <p>{{message}}</p>
+        </div> 
+        <!-- deuxième v-on raccourci avec le @ -->
+        
+
+    </div>
+
+    <div id="vm">
+
+        <input type="checkbox" v-model="success">
+        <input type="text" v-model="message">
+        {{ message }}
+        <div class="message" :class='cls'>
+            Salut les gens
+        </div>
+
+    </div>
+
+    <div id="name">
+        <p>
+            Prénom : {{ firstName}} <br>
+            Nom : {{ lastName}} <br>
+            <input type="text" v-model=fullName>
+
+        </p>
+    </div>
+
+
+    <div id="createDirective">
+
+        <input type="text" v-salut.a.b.c = "message">
+        {{ message}}
+        <a :href="link">{{link}}</a> 
+
+    </div>
+
+    <div id="filter">
+
+        <p>{{ message | capitalize }}</p>
+
+    </div>
+  
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+    <script src="app.js"></script>
+</body>
+</html>

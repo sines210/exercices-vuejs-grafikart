@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>create-components</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="createComponent">
+
+        <form-user v-model='user'>
+            <div class="10" slot="header">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate, reiciendis nobis? Maiores, voluptas! Qui quas, a sint veritatis minima consequatur rem exercitationem cum modi deserunt quam fuga velit provident eum?</div>
+            <div class="10" slot="footer"> ipsum dolor sit amet consectetur adipisicing elit. Esse quae temporibus dolorem dolor, quod vel perspiciatis eum, illo cumque dolores quam voluptatem mollitia perferendis ullam numquam harum inventore neque quibusdam.</div>
+        </form-user>
+        <p>&nbsp</p>
+        <message type="success" :message="message" header="Attention" v-if="alert" @close="hideAlert"></message>
+        <counter></counter>
+        <counter :start="3"></counter>
+        <button @click="showAlert" v-if="!alert">Alerter</button>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+    <script src="app2.js"></script>
+
+</body>
+</html>
